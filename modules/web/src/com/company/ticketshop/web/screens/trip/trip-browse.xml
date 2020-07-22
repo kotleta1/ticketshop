@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="tripsTable"
+        messagesPack="com.company.ticketshop.web.screens.trip">
+    <data readOnly="true">
+        <collection id="tripsDc"
+                    class="com.company.ticketshop.entity.Trip"
+                    view="_local">
+            <loader id="tripsDl">
+                <query>
+                    <![CDATA[select e from ticketshop_Trip e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tripsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tripsTable"
+                dataLoader="tripsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tripsTable"
+                    width="100%"
+                    dataContainer="tripsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="tripsTable.create"/>
+                <button id="editBtn" action="tripsTable.edit"/>
+                <button id="removeBtn" action="tripsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

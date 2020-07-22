@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.ticketshop.web.screens.routes">
+    <data>
+        <instance id="routesDc"
+                  class="com.company.ticketshop.entity.Routes"
+                  view="_local">
+            <loader/>
+        </instance>
+        <collection id="stopsesDc" class="com.company.ticketshop.entity.Stops">
+            <view extends="_local"/>
+            <loader id="stopsesDl">
+                <query>
+                    <![CDATA[select e from ticketshop_Stops e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="routesDc">
+            <column width="250px">
+                <textField id="routeidField" property="routeid"/>
+                <lookupField id="vehtypeField" property="vehtype"/>
+            </column>
+        </form>
+        <table id="stopsesTable" height="400px" width="300px" dataContainer="stopsesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="stations"/>
+            </columns>
+            <buttonsPanel>
+                <button action="stopsesTable.create"/>
+                <button action="stopsesTable.edit"/>
+                <button action="stopsesTable.remove"  stylename="danger"/>
+            </buttonsPanel>
+        </table>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

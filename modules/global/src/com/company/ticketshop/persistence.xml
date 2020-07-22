@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="ticketshop" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.ticketshop.entity.Passenger</class>
+        <class>com.company.ticketshop.entity.Ticket</class>
+        <class>com.company.ticketshop.entity.Trip</class>
+        <class>com.company.ticketshop.entity.Routes</class>
+        <class>com.company.ticketshop.entity.Stops</class>
+    </persistence-unit>
+</persistence>

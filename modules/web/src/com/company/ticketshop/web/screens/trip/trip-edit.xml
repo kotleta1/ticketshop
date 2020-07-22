@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.ticketshop.web.screens.trip">
+    <data>
+        <instance id="tripDc"
+                  class="com.company.ticketshop.entity.Trip"
+                  view="_local">
+            <loader/>
+        </instance>
+        <collection id="tripsDc" class="com.company.ticketshop.entity.Trip">
+            <view extends="_local"/>
+            <loader id="tripsDl">
+                <query>
+                    <![CDATA[select e from ticketshop_Trip e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="tripDc">
+            <column width="250px">
+                <passengerid id="passengerid" property="passengerid"/>
+                <ticketid id="ticketid" property="ticketid"/>
+            </column>
+
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

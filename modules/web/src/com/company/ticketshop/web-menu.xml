@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-ticketshop" insertBefore="administration">
+        <item screen="ticketshop_Passenger.browse"/>
+        <item screen="ticketshop_Routes.browse"/>
+        <item screen="ticketshop_Trip.browse"/>
+        <item screen="ticketshop_Ticket.browse"/>
+    </menu>
+</menu-config>

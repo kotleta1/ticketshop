@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="ticketshop_Trip" name="trip-view" extends="_local">
+        <property name="passengerid" view="_minimal"/>
+        <property name="ticketid" view="_minimal">
+            <property name="ticketid"/>
+        </property>
+    </view>
+    <view entity="ticketshop_Ticket" name="ticket-view">
+        <property name="vehtype"/>
+        <property name="departuretime"/>
+        <property name="arrivalplace"/>
+        <property name="departureplace"/>
+    </view>
+</views>

@@ -1,0 +1,3 @@
+alter table TICKETSHOP_STOPS alter column ROUTES_ID rename to ROUTES_ID__U85857 ^
+alter table TICKETSHOP_STOPS drop constraint FK_TICKETSHOP_STOPS_ON_ROUTES ;
+drop index IDX_TICKETSHOP_STOPS_ON_ROUTES ;
